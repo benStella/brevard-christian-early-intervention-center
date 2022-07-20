@@ -1,0 +1,393 @@
+<!-- turn countries into text -->
+<!-- fix radio both activating -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>BCEIC Employment application</title>
+    <link rel="stylesheet" href="../css/employmentApplication.css">
+</head>
+
+<body>
+    <div class="testbox">
+        <div class="error-messages">
+
+        </div>
+        <form method="post">
+            <div class="banner">
+                <h1>Employment Application</h1>
+            </div>
+
+            <!-- applicant info section -->
+            <div id="applicant-info-div" class="item">
+                <h2>Applicant Information</h2>
+                <p>Name<span class="">*</span></p>
+
+                <div class="name-item">
+                    <input type="text" name="fName" id="fName" placeholder="First" />
+                    <input type="text" name="mInitial" id="mName" class="x" placeholder="middle initial">
+                    <input type="text" name="lName" id="lName" class="x" placeholder="Last" />
+                </div>
+
+                <div>
+                    <p>Home Address<span class="">*</span></p>
+                    <input type="text" name="address" placeholder="Street address" />
+                    <div class="city-item">
+                        <input type="text" name="city" placeholder="City" />
+                        <input type="text" name="state" placeholder="State" />
+                        <input type="text" name="zipCode" placeholder="Postal / Zip code" />
+                        <select name="country">
+                            <option value="">Country</option>
+                            <option value="Russia">Russia</option>
+                            <option value="Germany">Germany</option>
+                            <option value="France">France</option>
+                            <option value="Armenia">Armenia</option>
+                            <option value="USA">USA</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="item">
+                    <p>Email<span class="">*</span></p>
+                    <input type="text" name="email" />
+                </div>
+                <div class="item">
+                    <p>Phone</p>
+                    <input type="text" name="phone" />
+                </div>
+                <div class="question">
+                    <p>Are you a citizen of the United states?<span class="">*</span></p>
+                    <div class="question-answer">
+                        <label><input type="radio" value="Yes" name="citizenOfUs" /> <span>Yes</span></label>
+                        <label><input type="radio" value="No" name="citizenOfUs" /> <span>No</span></label>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>Have you ever worked for this company?<span class="">*</span></p>
+                    <div class="question-answer">
+                        <label><input type="radio" value="Yes" name="workedForCompany" /> <span>Yes</span></label>
+                        <label><input type="radio" value="No" name="workedForCompany" /> <span>No</span></label>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>Have you ever been convicted of a felony?<span class="">*</span></p>
+                    <div class="question-answer">
+                        <label><input type="radio" value="Yes" name="convicted-of-felony"
+                                id="convicted-of-felony-yes" /> <span>Yes</span></label>
+                        <label><input type="radio" value="No" name="convicted-of-felony" id="convicted-of-felony-no" />
+                            <span>No</span></label>
+                    </div>
+                </div>
+                <div class="item">
+                    <p>If yes, explain</p>
+                    <input class="question-textarea" id="explain-felony" name="felony-if-yes"></input>
+                </div>
+                <div class="question">
+                    <p>If no, are you authorized to work in the U.S.?</p>
+                    <label><input type="radio" value="Yes" name="felony-if-no" class="felony-if-no"
+                            id="felony-if-no-yes" /> <span>Yes</span></label>
+                    <label><input type="radio" value="No" name="felony-if-no" class="felony-if-no"
+                            id="felony-if-no-no" /> <span>No</span></label>
+                </div>
+                <div class="item">
+                    <p>If yes, when?</p>
+                    <input type="text" class="question-textarea" name="if-authorized-to-work" id="if-yes-textarea">
+                </div>
+            </div>
+
+            <!-- education section -->
+            <div id="education-div" class="item">
+                <h2>Education</h2>
+
+                <div class="school">
+                    <div>
+                        <p>High School</p>
+                        <input type="text" class="School-input" name="name-of-hs" autocomplete="chrome-off">
+                    </div>
+                    <div class="school-address">
+                        <p>Address</p>
+                        <input type="text" name="hs-address" autocomplete="chrome-off">
+                    </div>
+                    <div>
+                        <p>From</p>
+                        <input type="number" min="1900" max="2100" step="1" name="hs-from">
+                    </div>
+                    <div class="school-to">
+                        <p>to</p>
+                        <input type="number" min="1900" max="2100" step="1" name="hs-to">
+                    </div>
+                    <div class="question" id="did-you-graduate-college">
+                        <p>Did you graduate?</p>
+                        <label><input type="radio" value="yes" name="did-you-graduate-college-yes"
+                                id="did-you-graduate-college-yes">Yes</label>
+                        <label><input type="radio" value="no" name="did-you-graduate-college-no"
+                                id="did-you-graduate-college-no">No</label>
+                    </div>
+                    <div class="item">
+                        <p>Diploma</p>
+                        <input type="text" name="college-diploma" class="school-diploma" autocomplete="chrome-off">
+                    </div>
+                </div>
+
+
+                <div class="school">
+                    <div>
+                        <p>college</p>
+                        <input type="text" class="School-input" name="name-of-college" autocomplete="chrome-off">
+                    </div>
+                    <div class="school-address">
+                        <p>Address</p>
+                        <input type="text" name="college-address" autocomplete="chrome-off">
+                    </div>
+                    <div>
+                        <p>From</p>
+                        <input type="number" min="1900" max="2100" step="1" name="college-from">
+                    </div>
+                    <div class="school-to">
+                        <p>to</p>
+                        <input type="number" min="1900" max="2100" step="1" name="college-to">
+                    </div>
+                    <div class="question" id="did-you-graduate-college">
+                        <p>Did you graduate?</p>
+                        <label><input type="radio" value="yes" name="did-you-graduate-college-yes"
+                                id="did-you-graduate-college-yes">Yes</label>
+                        <label><input type="radio" value="no" name="did-you-graduate-college-no"
+                                id="did-you-graduate-college-no">No</label>
+                    </div>
+                    <div class="item">
+                        <p>Diploma</p>
+                        <input type="text" name="college-diploma" class="school-diploma" autocomplete="chrome-off">
+                    </div>
+                </div>
+
+                <div class="school">
+                    <div>
+                        <p>other</p>
+                        <input type="text" class="School-input" name="name-of-college" autocomplete="chrome-off">
+                    </div>
+                    <div class="school-address">
+                        <p>Address</p>
+                        <input type="text" name="other-address" autocomplete="chrome-off">
+                    </div>
+                    <div>
+                        <p>From</p>
+                        <input type="number" min="1900" max="2100" step="1" name="other-from">
+                    </div>
+                    <div class="school-to">
+                        <p>to</p>
+                        <input type="number" min="1900" max="2100" step="1" name="other-to">
+                    </div>
+                    <div class="question" id="did-you-graduate-other">
+                        <p>Did you graduate?</p>
+                        <label><input type="radio" value="yes" name="did-you-graduate-other-yes"
+                                id="did-you-graduate-other-yes">Yes</label>
+                        <label><input type="radio" value="no" name="did-you-graduate-other-no"
+                                id="did-you-graduate-other-no">No</label>
+                    </div>
+                    <div class="item">
+                        <p>Diploma</p>
+                        <input type="text" name="other-diploma" class="school-diploma" autocomplete="chrome-off">
+                    </div>
+                </div>
+            </div>
+
+            <!-- references section -->
+            <div id="references-div" class="item">
+                <h2>References</h2>
+                <h3>Please list three professional references</h3>
+
+                <div class="references">
+                    <div class="references-full-name">
+                        <p>Full Name</p>
+                        <input type="text" name="references-name-1" class="references-input" autocomplete="chrome-off">
+                    </div>
+                    <div>
+                        <p>relationship</p>
+                        <input type="text" name="references-relationship-1" class="references-input-2"
+                            autocomplete="chrome-off">
+                    </div>
+                    <div class="references-company">
+                        <p>Company</p>
+                        <input type="text" name="company-name" class="references-input" autocomplete="chrome-off">
+                    </div>
+                    <div>
+                        <p>Phone</p>
+                        <input type="text" name="company-phone" class="references-input-2">
+                    </div>
+                    <div>
+                        <p>Address</p>
+                        <input type="text" name="reference-address" class="reference-address" autocomplete="chrome-off">
+                    </div>
+                    <p>_________________________________________________________________________________________________________________________________________________________________________________________________
+                    </p>
+
+                    <div class="references-full-name">
+                        <p>Full Name</p>
+                        <input type="text" name="references-name-1" class="references-input" autocomplete="chrome-off">
+                    </div>
+                    <div>
+                        <p>relationship</p>
+                        <input type="text" name="references-relationship-1" class="references-input-2">
+                    </div>
+                    <div class="references-company">
+                        <p>Company</p>
+                        <input type="text" name="company-name" class="references-input" autocomplete="chrome-off">
+                    </div>
+                    <div>
+                        <p>Phone</p>
+                        <input type="text" name="company-phone" class="references-input-2" autocomplete="chrome-off">
+                    </div>
+                    <div>
+                        <p>Address</p>
+                        <input type="text" name="reference-address" class="reference-address" autocomplete="chrome-off">
+                    </div>
+                    <p>_________________________________________________________________________________________________________________________________________________________________________________________________
+                    </p>
+
+
+                    <div class="references-full-name">
+                        <p>Full Name</p>
+                        <input type="text" name="references-name-1" class="references-input" autocomplete="chrome-off">
+                    </div>
+                    <div>
+                        <p>relationship</p>
+                        <input type="text" name="references-relationship-1" class="references-input-2"
+                            autocomplete="chrome-off">
+                    </div>
+                    <div class="references-company">
+                        <p>Company</p>
+                        <input type="text" name="company-name" class="references-input" autocomplete="chrome-off">
+                    </div>
+                    <div>
+                        <p>Phone</p>
+                        <input type="text" name="company-phone" class="references-input-2" autocomplete="chrome-off">
+                    </div>
+                    <div>
+                        <p>Address</p>
+                        <input type="text" name="reference-address" class="reference-address" autocomplete="chrome-off">
+                    </div>
+                </div>
+            </div>
+
+            <!-- previous employment section -->
+            <div id="prvious-employment-div" class="item">
+                <h2>Previous Employment</h2>
+                <div class="references">
+                    <div>
+                        <label for="Previous-employment-company">company</label>
+                        <input type="text" name="previous-employment-company" id="Previous-employment-company"
+                            class="references-input" autocomplete="chrome-off">
+                    </div>
+                    <div class="secondary-input">
+                        <label for="previous-employment-phone">Phone</label>
+                        <input type="text" name="previous-employment-phone" id="previous-employment-phone"
+                            class="secondary-input-css" autocomplete="chrome-off">
+                    </div>
+                    <div>
+                        <label for="Previous-employment-address">Address</label>
+                        <input type="text" name="previous-employment-address" id="Previous-employment-address"
+                            class="references-input" autocomplete="chrome-off">
+                    </div>
+                    <div class="secondary-input">
+                        <label for="previous-employment-supervisor">supervisor</label>
+                        <input type="text" name="previous-employment-supervisor" id="previous-employment-supervisor"
+                            class="secondary-input-css" autocomplete="chrome-off">
+                    </div>
+
+                    <div class="previous-employment-input">
+                        <div>
+                            <label for="previous-employment-job">Job Title</label>
+                            <input type="text" name="previous-employment-job" id="previous-employment-job"
+                                autocomplete="chrome-off">
+                        </div>
+                        <div>
+                            <label for="previous-employment-starting-salary">Starting Salary</label>
+                            <input type="text" name="previous-employment-starting-salary"
+                                id="previous-employment-starting-salary" placeholder="$">
+                        </div>
+                        <div>
+                            <label for="previous-employment-ending-salary">Ending Salary</label>
+                            <input type="text" name="previous-employment-ending-salary"
+                                id="previous-employment-ending-salary" placeholder="$">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="previous-employment-responsibilities">Responsibilities</label>
+                        <input type="text" name="previous-employment-responsibilities"
+                            id="previous-employment-responsibilities">
+                    </div>
+                    <div>
+                        <label for="previous-employment-from">from</label>
+                        <input type="number" name="previous-employment-from" id="previous-employment-from" min="1900"
+                            max="2100">
+                        <label for="previous-employment-to">to</label>
+                        <input type="number" name="previous-employment-to" id="previous-employment-to" min="1900"
+                            max="2100">
+                    </div>
+
+                    <div>
+                        <label for="previous-employment-reason-for-leaving">Reason for leaving</label>
+                        <input type="text" name="previous-employment-reason-for-leaving"
+                            id="previous-employment-reason-for-leaving">
+                    </div>
+
+                    <div>
+                        <p>May we contact your previous supervisor for a reference?</p>
+                        <label for="previous-employment-contact-supervisor-yes-1">Yes</label>
+                        <input type="radio" name="previous-employment-contact-supervisor-yes-1"
+                            id="previous-employment-contact-supervisor-yes-1">
+                        <label for="previous-employment-contact-supervisor-no-1">No</label>
+                        <input type="radio" name="previous-employment-contact-supervisor-no-1"
+                            id="previous-employment-contact-supervisor-no-1">
+                    </div>
+                    <p>_________________________________________________________________________________________________________________________________________________________________________________________________
+                    </p>
+                </div>
+
+                <!-- military services div -->
+                <div id="military-service-div" class="item">
+                    <h2>Military Service</h2>
+                    <div>
+                        <label for="">Branch</label>
+                        <input type="text" name="military-branch-input" id="military-branch-input">
+                    </div>
+                    <div>
+                        <label for="previous-employment-from">from</label>
+                        <input type="number" name="previous-employment-from" id="previous-employment-from" min="1900"
+                            max="2100">
+                        <label for="previous-employment-to">to</label>
+                        <input type="number" name="previous-employment-to" id="previous-employment-to" min="1900"
+                            max="2100">
+                    </div>
+                    <div>
+                        <label for="">Rank at discharge</label>
+                        <input type="text" name="military-service-rank" id="military-service-rank"
+                            autocomplete="chrome-off">
+                    </div>
+                    <div>
+                        <label for="military-service-type-of-discharge">Type of discharge</label>
+                        <input type="text" name="military-service-type-of-discharge"
+                            id="military-service-type-of-discharge" autocomplete="chrome-off">
+                    </div>
+                    <div>
+                        <label for="military-service-explain-discharge">If other than honorable, explain</label>
+                        <input type="text" name="military-service-explain-discharge"
+                            id="military-service-explain-discharge" autocomplete="chrome-off">
+                    </div>
+                </div>
+
+                <div id="disclamer-signature-div" class="item">
+                    <h2>Disclaimer and Signature</h2>
+
+                </div>
+
+                <div id="submit-btn">
+                    <button type="submit" id="apply-btn" href="">Apply</button>
+                </div>
+        </form>
+
+    </div>
+    <script src="../js/employmentApplication.js"></script>
+</body>
+
+</html>

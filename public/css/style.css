@@ -1,0 +1,77 @@
+.header {
+  padding: 20px;
+}
+
+.header h5 {
+  color: orangered;
+  font-size: 35px;
+}
+
+.header-list {
+  position: absolute;
+  left: 45vw;
+}
+
+.header-list li {
+  list-style: none;
+}
+
+.header-list li a {
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.header-list li a:hover {
+  color: rgb(133, 35, 0);
+}
+
+.header-list li a:active {
+  color: rgb(214, 46, 0);
+}
+
+.jumbotron {
+  display: flex;
+  height: 55vh;
+}
+
+.jumbotron-pic {
+  padding: 10vw;
+  width: 50%;
+}
+
+.jumbotron-info {
+  background-color: orangered;
+  width: 50%;
+}
+
+.x {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10vh;
+}
+
+.jumbotron-p {
+  font-size: 44px;
+  color: white;
+}
+
+.contact-us-btn {
+  border: none;
+  background-color: white;
+  padding: 1vw;
+}
+
+.social-media-links {
+  display: flex;
+  justify-content: center;
+  padding: 10vh;
+}
+
+.footer {
+  background-color: black;
+  color: gray;
+  padding: 25px;
+}

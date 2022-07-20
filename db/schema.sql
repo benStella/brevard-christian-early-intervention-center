@@ -1,0 +1,4 @@
+DROP DATABASE IF EXISTS applicants;
+
+CREATE DATABASE applicants;
+
