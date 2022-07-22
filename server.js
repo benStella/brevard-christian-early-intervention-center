@@ -1,36 +1,31 @@
 const express = require('express')
-const mysql = require('mysql2')
+const sequelize = require('./config/connection')
 const exphbs = require('express-handlebars')
 const hbs = exphbs.create({})
-const db = require('./config/connection')
-
-const controllers = require('./controllers')
-// const controllers = require('./controllers/apiRoutes')
-const app = express()
-const PORT = process.env.PORT || 3001;
-const sequelize = require('./config/connection')
 const session = require('express-session')
-const { cookie } = require('express-validator')
-require('dotenv').config()
-const sequelizeStore = require('connect-session-sequelize')(session.Store)
+require("dotenv").config()
+const SequalizeStore = require('connect-session-sequelize')(session.Store)
 
 const sess = {
-    secret: process.env.DB_SECRET,
+    secret: process.env.SECRET,
     cookie: {},
     resave: false,
     saveUninitialized: true,
-    store: new sequelizeStore({
+    store: new SequalizeStore({
         db: sequelize
     })
 }
 
-app.use(session(sess))
+const routes = require('./controllers')
+// const routes = require('./routes/apiRoutes')
+const app = express()
+const PORT = process.env.PORT || 3001;
+
 app.use(express.static('public'));
 app.use(express.json());
-
-app.use(controllers)
-// app.use('/employmentApplication', routes)
 app.use(express.urlencoded({ extended: true }));
+app.use(session(sess))
+app.use(routes)
 
 app.engine('handlebars', hbs.engine)
 app.set('view engine', 'handlebars')

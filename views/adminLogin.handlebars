@@ -8,14 +8,14 @@
     <title>admin login</title>
 </head>
 
-<body>
-    <form action="/adminLogin" method="post" id="login-form">
-        <input id="admin-username" placeholder="Username" name="email" type="text">
-        <input id="admin-password" placeholder="Password" name="password" type="password">
-        <a href="/createAdmin">create account</a>
-        <button id="admin-login-submit" type="submit">Login</button>
-    </form>
-    <script src="../public/js/adminLogin.js"></script>
-</body>
+<form action="/adminLogin" method="post" id="login-form">
+    <input id="admin-username" placeholder="Email" name="email" type="text">
+    <input id="admin-password" placeholder="Password" name="password" type="password">
+    <a href="/createAdmin">create account</a>
+    <button id="admin-login-submit" type="submit">Login</button>
+</form>
+{{!--
+<script src="../public/js/adminLogin.js"></script> --}}
+
 
 </html>

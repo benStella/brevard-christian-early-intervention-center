@@ -11,7 +11,20 @@ router.get('/', (req, res) => {
 })
 
 router.get('/adminLogin', (req, res) => {
+    if(req.session.loggedIn) {
+        res.redirect('applicantInfo')
+    }
+    
     res.render('adminLogin')
+})
+
+router.get('/logout', (req, res) => {
+    
+    if(req.session.loggedIn) {
+        req.session.destroy()
+        res.redirect('adminLogin')
+        // res.status(404).end()
+    }
 })
 
 router.get('/createAdmin', (req, res) => {

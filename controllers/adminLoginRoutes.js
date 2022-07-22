@@ -10,16 +10,6 @@ router.use(bodyparser.json())
 router.use(bodyparser.urlencoded({ extended: false }))
 
 
-    // AdminAccount.findAll({
-    //     attributes: [
-    //         "email"
-    //     ],
-    //     include: [{
-    //         attributes: ['id', 'email']
-    //     }
-    //     ]
-    // })
-
 router.post('/', [
     check('email')
     .isEmail(),
@@ -32,33 +22,39 @@ router.post('/', [
     
     if(!errors.isEmpty()) {
         // res.send(errors)
-        console.log(req.body)
     }
  
     AdminAccount.findOne({
-        attributes: {exclude: ['password']},
         where: 
         {
             email: req.body.email
         }
     }).then(dbAdminLoginData => {
-        // if(!dbAdminLoginData) {
-        //     res.json({ message: 'No user with that email address!'});
-        //     return;
-        // }
-        // console.log(dbAdminLoginData)
-    }).catch(err => console.log(err))
 
-    // const validPassword = dbAdminLoginData.checkPassword(req.body.password) 
+        if(!dbAdminLoginData) {
+                res.json({ message: 'No user with that email address'});
+                return;
+            }
+            
+                const validPassword = dbAdminLoginData.checkPassword(req.body.password) 
+                
+                
+                if (!validPassword) {
+                    res.json({ message: 'Incorrect password!'});
+                    return; 
+                }
+
+            req.session.save(() => {
+                req.session.user_id = dbAdminLoginData.id
+                req.session.username = dbAdminLoginData.email
+                req.session.loggedIn = true;
     
-    
-    // if (!validPassword) {
-    //     res.json({ message: 'Incorrect password!'});
-    //     return; 
-    // }
-    
-    // res.json({ user: dbAdminLoginData, message: 'you are logged' })
+                res.redirect('applicantInfo')
+            })
+
+    }).catch(err => console.log(err))
 })
+
 
 
 
