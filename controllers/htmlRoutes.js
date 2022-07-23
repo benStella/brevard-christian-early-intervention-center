@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const path = require('path')
+const withAuth = require('../utils/auth')
 // const bodyparser = require('body-parser')
 // const urlencodedParses = bodyparser.urlencoded({ extended: false })
 
@@ -12,10 +13,10 @@ router.get('/', (req, res) => {
 
 router.get('/adminLogin', (req, res) => {
     if(req.session.loggedIn) {
-        res.redirect('applicantInfo')
+        res.render('partials/applicantInfo')
     }
     
-    res.render('adminLogin')
+    res.render('partials/adminLogin')
 })
 
 router.get('/logout', (req, res) => {
@@ -23,7 +24,6 @@ router.get('/logout', (req, res) => {
     if(req.session.loggedIn) {
         req.session.destroy()
         res.redirect('adminLogin')
-        // res.status(404).end()
     }
 })
 

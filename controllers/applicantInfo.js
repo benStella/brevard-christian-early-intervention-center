@@ -18,9 +18,8 @@ router.get('/', (req, res) => {
 
     }).then(applicantInfo => {
         const applicants = applicantInfo.map(info => info.get({ plain: true }))
-        res.render('applicants', { applicants } )
+        res.render('partials/applicants', { applicants } )
     }).catch(err => console.log(err))
 })
-
 
 module.exports = router
