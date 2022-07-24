@@ -1,4 +1,4 @@
 const AdminAccount = require('./adminAccount')
-const EmployeeApplicant = require('./employeeApplicant')
+const applicantInformation = require('./applicantInformation')
 
-module.exports = { AdminAccount, EmployeeApplicant }
+module.exports = { AdminAccount, applicantInformation }

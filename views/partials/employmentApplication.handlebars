@@ -42,7 +42,7 @@
                             <option value="Germany">Germany</option>
                             <option value="France">France</option>
                             <option value="Armenia">Armenia</option>
-                            <option value="USA">USA</option>
+                            <option value="USA" selected>USA</option>
                         </select>
                     </div>
                 </div>
@@ -51,46 +51,47 @@
                     <input type="text" name="email" />
                 </div>
                 <div class="item">
-                    <p>Phone</p>
+                    <p>Phone number</p>
                     <input type="text" name="phone" />
                 </div>
                 <div class="question">
                     <p>Are you a citizen of the United states?<span class="">*</span></p>
                     <div class="question-answer">
-                        <label><input type="radio" value="Yes" name="citizenOfUs" /> <span>Yes</span></label>
-                        <label><input type="radio" value="No" name="citizenOfUs" /> <span>No</span></label>
+                        <label><input type="radio" value="true" name="citizenUS" /> <span>Yes</span></label>
+                        <label><input type="radio" value="false" name="citizenUS" /> <span>No</span></label>
                     </div>
                 </div>
                 <div class="question">
                     <p>Have you ever worked for this company?<span class="">*</span></p>
                     <div class="question-answer">
-                        <label><input type="radio" value="Yes" name="workedForCompany" /> <span>Yes</span></label>
-                        <label><input type="radio" value="No" name="workedForCompany" /> <span>No</span></label>
+                        <label><input type="radio" value="true" name="workedForThisCompany" /> <span>Yes</span></label>
+                        <label><input type="radio" value="false" name="workedForThisCompany" /> <span>No</span></label>
                     </div>
                 </div>
                 <div class="question">
                     <p>Have you ever been convicted of a felony?<span class="">*</span></p>
                     <div class="question-answer">
-                        <label><input type="radio" value="Yes" name="convicted-of-felony"
-                                id="convicted-of-felony-yes" /> <span>Yes</span></label>
-                        <label><input type="radio" value="No" name="convicted-of-felony" id="convicted-of-felony-no" />
+                        <label><input type="radio" value="true" name="convictedOfFelony" id="convicted-of-felony-yes" />
+                            <span>Yes</span></label>
+                        <label><input type="radio" value="false" name="convictedOfFelony" id="convicted-of-felony-no" />
                             <span>No</span></label>
                     </div>
                 </div>
                 <div class="item">
                     <p>If yes, explain</p>
-                    <input class="question-textarea" id="explain-felony" name="felony-if-yes"></input>
+                    <input class="question-textarea" id="explain-felony" name="felonyIfYes"></input>
                 </div>
                 <div class="question">
                     <p>If no, are you authorized to work in the U.S.?</p>
-                    <label><input type="radio" value="Yes" name="felony-if-no" class="felony-if-no"
+                    <label><input type="radio" value="true" name="felonyIfNo" class="felony-if-no"
                             id="felony-if-no-yes" /> <span>Yes</span></label>
-                    <label><input type="radio" value="No" name="felony-if-no" class="felony-if-no"
-                            id="felony-if-no-no" /> <span>No</span></label>
+                    <label><input type="radio" value="false" name="felonyIfNo" class="felony-if-no"
+                            id="felony-if-no-no" />
+                        <span>No</span></label>
                 </div>
                 <div class="item">
                     <p>If yes, when?</p>
-                    <input type="text" class="question-textarea" name="if-authorized-to-work" id="if-yes-textarea">
+                    <input type="text" class="question-textarea" name="ifAuthorizedToWork" id="if-yes-textarea">
                 </div>
             </div>
 

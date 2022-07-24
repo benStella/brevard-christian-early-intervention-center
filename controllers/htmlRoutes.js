@@ -8,12 +8,12 @@ const withAuth = require('../utils/auth')
 // router.use(bodyparser.urlencoded({ extended: false }))
 
 router.get('/', (req, res) => {
-    res.render('landingpage')
+    res.render('partials/landingpage')
 })
 
 router.get('/adminLogin', (req, res) => {
     if(req.session.loggedIn) {
-        res.render('partials/applicantInfo')
+        res.redirect('applicants')
     }
     
     res.render('partials/adminLogin')
@@ -28,6 +28,6 @@ router.get('/logout', (req, res) => {
 })
 
 router.get('/createAdmin', (req, res) => {
-    res.render('createAdmin')
+    res.render('partials/createAdmin')
 })
 module.exports = router

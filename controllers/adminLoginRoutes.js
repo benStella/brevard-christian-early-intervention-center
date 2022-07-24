@@ -49,31 +49,10 @@ router.post('/', [
                 req.session.username = dbAdminLoginData.email
                 req.session.loggedIn = true;
     
-                res.redirect('applicantInfo')
+                res.redirect('applicants')
             })
 
     }).catch(err => console.log(err))
-})
-
-
-
-
-router.put('/adminLogin/:id', (req, res) => {
-    AdminAccount.update(req.body, {
-        individualHooks: true,
-        where: {
-            id: req.params.id
-        }
-    }).then(dbAdminData => {
-        if(!dbAdminData) {
-            res.status(404).json({message: 'no user found with this id'})
-            return
-        }
-
-        res.json(dbAdminData)
-    }).catch(err => {
-        console.log(err)
-    })
 })
             
 module.exports = router
