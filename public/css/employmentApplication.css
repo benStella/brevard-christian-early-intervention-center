@@ -124,12 +124,12 @@ select {
   background: transparent;
 }
 
-.item:hover p,
+/* .item:hover p,
 .question:hover p,
 .question label:hover,
 input:hover::placeholder {
   color: #095484;
-}
+} */
 
 .item input:hover,
 .item select:hover {

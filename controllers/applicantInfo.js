@@ -4,7 +4,7 @@ const withAuth = require('../utils/auth')
 const bodyparser = require('body-parser')
 const urlencodedParses = bodyparser.urlencoded({ extended: false })
 const sequelize = require('../config/connection')
-const { applicantInformation } = require('../models')
+const { applicantInformation, applicantEducation } = require('../models')
 
 
 
@@ -14,9 +14,23 @@ router.use(bodyparser.urlencoded({ extended: false }))
 router.get('/', withAuth, (req, res) => {
     applicantInformation.findAll({
         attributes: [
-            'id',
+            'createdAt',
             'first_name',
-            'last_name'
+            'last_name',
+            'middle_initial',
+            'address',
+            'city',
+            'state',
+            'zip_code',
+            'country',
+            'email',
+            'phone_number',
+            'citizen_US',
+            'worked_for_this_company',
+            'convicted_of_felony',
+            'felony_explanation',
+            'felony_if_no',
+            'if_authorized_to_work'
         ]
 
     }).then(applicantInfo => {

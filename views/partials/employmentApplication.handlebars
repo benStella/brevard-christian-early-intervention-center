@@ -24,19 +24,19 @@
                 <p>Name<span class="">*</span></p>
 
                 <div class="name-item">
-                    <input type="text" name="fName" id="fName" placeholder="First" />
-                    <input type="text" name="mInitial" id="mName" class="x" placeholder="middle initial">
-                    <input type="text" name="lName" id="lName" class="x" placeholder="Last" />
+                    <input type="text" name="fName" id="fName" placeholder="First" required />
+                    <input type="text" name="mInitial" id="mName" class="x" placeholder="middle initial" required>
+                    <input type="text" name="lName" id="lName" class="x" placeholder="Last" required />
                 </div>
 
                 <div>
                     <p>Home Address<span class="">*</span></p>
-                    <input type="text" name="address" placeholder="Street address" />
+                    <input type="text" name="address" placeholder="Street address" required />
                     <div class="city-item">
-                        <input type="text" name="city" placeholder="City" />
-                        <input type="text" name="state" placeholder="State" />
-                        <input type="text" name="zipCode" placeholder="Postal / Zip code" />
-                        <select name="country">
+                        <input type="text" name="city" placeholder="City" required />
+                        <input type="text" name="state" placeholder="State" required />
+                        <input type="text" name="zipCode" placeholder="Postal / Zip code" required />
+                        <select name="country" required>
                             <option value="">Country</option>
                             <option value="Russia">Russia</option>
                             <option value="Germany">Germany</option>
@@ -48,50 +48,56 @@
                 </div>
                 <div class="item">
                     <p>Email<span class="">*</span></p>
-                    <input type="text" name="email" />
+                    <input type="text" name="email" required />
                 </div>
                 <div class="item">
-                    <p>Phone number</p>
-                    <input type="text" name="phone" />
+                    <p>Phone number <span>*</span></p>
+                    <input type="text" name="phone" required />
                 </div>
                 <div class="question">
                     <p>Are you a citizen of the United states?<span class="">*</span></p>
                     <div class="question-answer">
-                        <label><input type="radio" value="true" name="citizenUS" /> <span>Yes</span></label>
-                        <label><input type="radio" value="false" name="citizenUS" /> <span>No</span></label>
+                        <label><input type="radio" value="true" name="citizenUS" id="citizenUS-true" required />
+                            <span>Yes</span></label>
+                        <label><input type="radio" value="false" name="citizenUS" id="citizenUS-false" required />
+                            <span>No</span></label>
                     </div>
                 </div>
                 <div class="question">
                     <p>Have you ever worked for this company?<span class="">*</span></p>
                     <div class="question-answer">
-                        <label><input type="radio" value="true" name="workedForThisCompany" /> <span>Yes</span></label>
-                        <label><input type="radio" value="false" name="workedForThisCompany" /> <span>No</span></label>
+                        <label><input type="radio" value="true" name="workedForThisCompany" required />
+                            <span>Yes</span></label>
+                        <label><input type="radio" value="false" name="workedForThisCompany" required />
+                            <span>No</span></label>
                     </div>
                 </div>
                 <div class="question">
                     <p>Have you ever been convicted of a felony?<span class="">*</span></p>
                     <div class="question-answer">
-                        <label><input type="radio" value="true" name="convictedOfFelony" id="convicted-of-felony-yes" />
+                        <label><input type="radio" value="true" name="convictedOfFelony" id="convicted-of-felony-yes"
+                                required />
                             <span>Yes</span></label>
-                        <label><input type="radio" value="false" name="convictedOfFelony" id="convicted-of-felony-no" />
+                        <label><input type="radio" value="false" name="convictedOfFelony" id="convicted-of-felony-no"
+                                required />
                             <span>No</span></label>
                     </div>
                 </div>
                 <div class="item">
                     <p>If yes, explain</p>
-                    <input class="question-textarea" id="explain-felony" name="felonyIfYes"></input>
+                    <input class="question-textarea" id="explain-felony" name="felonyExplanation"></input>
                 </div>
                 <div class="question">
                     <p>If no, are you authorized to work in the U.S.?</p>
-                    <label><input type="radio" value="true" name="felonyIfNo" class="felony-if-no"
-                            id="felony-if-no-yes" /> <span>Yes</span></label>
-                    <label><input type="radio" value="false" name="felonyIfNo" class="felony-if-no"
-                            id="felony-if-no-no" />
+                    <label><input type="radio" value="true" name="ifAuthorizedToWork" id="ifAuthorizedToWorkYes" />
+                        <span>Yes</span></label>
+                    <label><input type="radio" value="false" name="ifAuthorizedToWork" id="ifAuthorizedToWorkNo" />
                         <span>No</span></label>
                 </div>
                 <div class="item">
                     <p>If yes, when?</p>
-                    <input type="text" class="question-textarea" name="ifAuthorizedToWork" id="if-yes-textarea">
+                    <input type="text" class="question-textarea" name="ifAuthorizedToWorkWhen" id="if-yes-textarea"
+                        required>
                 </div>
             </div>
 
@@ -102,7 +108,7 @@
                 <div class="school">
                     <div>
                         <p>High School</p>
-                        <input type="text" class="School-input" name="name-of-hs" autocomplete="chrome-off">
+                        <input type="text" class="School-input" name="nameOfHS" autocomplete="chrome-off" required>
                     </div>
                     <div class="school-address">
                         <p>Address</p>
@@ -110,22 +116,28 @@
                     </div>
                     <div>
                         <p>From</p>
-                        <input type="number" min="1900" max="2100" step="1" name="hs-from">
+                        <input type="number" min="1900" max="2100" step="1" name="hs-start">
                     </div>
                     <div class="school-to">
                         <p>to</p>
-                        <input type="number" min="1900" max="2100" step="1" name="hs-to">
+                        <input type="number" min="1900" max="2100" step="1" name="hs-end">
                     </div>
-                    <div class="question" id="did-you-graduate-college">
+                    <div class="question" id="did-you-graduate-hs">
                         <p>Did you graduate?</p>
-                        <label><input type="radio" value="yes" name="did-you-graduate-college-yes"
-                                id="did-you-graduate-college-yes">Yes</label>
-                        <label><input type="radio" value="no" name="did-you-graduate-college-no"
-                                id="did-you-graduate-college-no">No</label>
+                        <label><input type="radio" value="yes" name="didYouGraduateHS"
+                                id="did-you-graduate-hs-yes">Yes</label>
+                        <label><input type="radio" value="no" name="didYouGraduateHS"
+                                id="did-you-graduate-hs-no">No</label>
                     </div>
                     <div class="item">
                         <p>Diploma</p>
-                        <input type="text" name="college-diploma" class="school-diploma" autocomplete="chrome-off">
+                        <select name="hsDiploma" class="school-diploma">
+                            <option value="">Type of Diploma</option>
+                            <option value="general diploma">General Diploma</option>
+                            <option value="honors diploma">Honors Diploma</option>
+                            <option value="occupational diploma">Occupational Diploma</option>
+                            <option value="GED">GED</option>
+                        </select>
                     </div>
                 </div>
 
@@ -388,8 +400,8 @@
         </form>
 
     </div>
-    {{!--
-    <script src="../js/employmentApplication.js"></script> --}}
+
+    <script src="../js/employmentApplication.js"></script>
 </body>
 
 </html>

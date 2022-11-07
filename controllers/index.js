@@ -8,7 +8,6 @@ const applicantInfo = require('./applicantInfo')
 const createAdmin = require('./createAdminRoutes')
 
 router.use(htmlRoutes)
-// router.use('/', landingpageRoutes)
 router.use('/adminLogin', adminLoginRoutes)
 router.use(childEnrollmentRoutes)
 router.use(employmentApplicationRoutes)

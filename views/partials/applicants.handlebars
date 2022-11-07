@@ -1,3 +1,7 @@
+<head>
+    <link rel="stylesheet" href="css/applicants.css">
+</head>
+
 <div>
 
 
@@ -6,13 +10,58 @@
     </nav>
 
 
-    {{#each applicants}}
+    {{!-- <p style="font-size: 6vh;">Employee applicants</p> --}}
+    <div>
 
-    <button>
-        {{id}}: {{last_name}}, {{first_name}}
+        {{#each applicants}}
+        <div class="dropdown">
 
-    </button>
+            <button onclick="myFunction()" class="dropbtn">
+                {{last_name}}
+                {{middle_initial}},
+                {{first_name}}
+            </button>
+
+            <div id="myDropdown">
+                <div class="dropdown-content">
+
+                    <h2>Basic <br>Information</h2>
+
+                    <div>
+                        <p>address: <span>{{address}}</span>, <span>{{city}}</span>, <span>{{state}}</span>
+                            <span>{{zip_code}}</span>
+                        </p>
+                        <p>country: <span>{{country}}</span></p>
+                        <p>email: <span>{{email}}</span></p>
+                        <p>phone number: <span>{{phone_number}}</span></p>
+                    </div>
+                    <div>
+                        <p>are you a citizen of the US: <span>{{citizen_US}}</span></p>
+                        <p>Have you worked for this company: <span>{{worked_for_this_company}}</span></p>
+                        <p>Have you been convicted of a felony: <span>{{convicted_of_felony}}</span></p>
+                    </div>
+                    <div>
+                        <p>felony explanation: <span>{{felony_explanation}}</span></p>
+                        <p>are you authorized to work in the U.S.: <span>{{felony_if_no}}</span></p>
+                        <p>when are you authorized to work in the U.S.: <span>{{if_authorized_to_work}}</span></p>
+                    </div>
+                </div>
+
+                <div class="dropdown-content">
+                    <h2>Education <br>Information</h2>
+
+                </div>
+                <div>
+                    submitted:{{createdAt}}
+                </div>
 
 
-    {{/each}}
+            </div>
+
+        </div>
+
+        {{/each}}
+    </div>
+
+    <script src="js/applicants.js"></script>
 </div>

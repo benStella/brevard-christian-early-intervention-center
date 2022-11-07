@@ -54,7 +54,10 @@ applicantInformation.init(
 
         email: {
             type: DataTypes.STRING(30),
-            allowNull: false
+            allowNull: false,
+            validate: {
+                isEmail: true
+            }            
         },
 
         phone_number: {
@@ -77,16 +80,64 @@ applicantInformation.init(
             allowNull: false
         },
 
-        felony_if_yes: {
-            type: DataTypes.TEXT
+        felony_explanation: {
+            type: DataTypes.TEXT,
+            allowNull: true
         },
 
         felony_if_no: {
-            type: DataTypes.BOOLEAN
+            type: DataTypes.BOOLEAN,
+            allowNull: true
         },
 
         if_authorized_to_work: {
-            type: DataTypes.TEXT
+            type: DataTypes.TEXT,
+            allowNull: true
+        },
+
+        name_of_high_school: {
+            type: DataTypes.TEXT,
+            // allowNull: false
+        },
+
+        high_school_address: {
+            type: DataTypes.STRING(42),
+            // allowNull: false
+        },
+
+        high_school_start: {
+            type: DataTypes.INTEGER,
+            // allowNull: false
+        },        
+
+        high_school_end: {
+            type: DataTypes.INTEGER,
+            // allowNull: false
+        },
+        
+        did_you_graduate_hs: {
+            type: DataTypes.BOOLEAN,
+            // allowNull: false
+        },
+
+        high_school_diploma: {
+            type: DataTypes.TEXT,
+            // allowNull: false
+        },
+
+        name_of_college: {
+            type: DataTypes.TEXT,
+            allowNull: true
+        },
+
+        college_address: {
+            type: DataTypes.STRING(42),
+            allowNull: true
+        },
+
+        college_start: {
+            type: DataTypes.INTEGER,
+            allowNull: true
         }
     },
     {

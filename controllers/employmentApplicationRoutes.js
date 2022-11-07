@@ -5,6 +5,8 @@ const bodyparser = require('body-parser')
 const urlencodedParses = bodyparser.urlencoded({ extended: false })
 const sequelize = require('sequelize')
 const { applicantInformation } = require('../models')
+const { ValidationError, ValidationErrorItem } = require('sequelize')
+const { Error } = require('sequelize')
 
 
 router.use(bodyparser.json())
@@ -18,66 +20,57 @@ router.get('/employmentApplication', (req, res) => {
 router.post('/employmentApplication', [
     check(['fName', 'mInitial', 'lName'])
     .isAlpha()
-    .toLowerCase()
+    .toLowerCase(),
     
-    // check('address')
-    // .matches(/^[A-Za-z0-9 .,'!&]+$/)
-    // .withMessage('Server rejected home address'),
+    check('address')
+    .matches(/^[A-Za-z0-9 .,'!&]+$/)
+    .toLowerCase(),
 
-    // check('city')
-    // .isAlpha()
-    // .toLowerCase()
-    // .withMessage('Server rejected city'),
+    check('city')
+    .isAlpha()
+    .toLowerCase(),
 
-    // check('state')
-    // .isAlpha()
-    // .toLowerCase()
-    // .withMessage('Server rejected state'),
+    check('state')
+    .isAlpha()
+    .toLowerCase(),
 
-    // check('zipCode')
-    // .isPostalCode('US')
-    // .withMessage('Server rejected zip code'),
+    check('zipCode')
+    .isPostalCode('US'),
 
-    // check('country')
-    // .isAlpha()
-    // .withMessage('Server rejected country'),
+    check('country')
+    .isAlpha()
+    .toLowerCase(),
 
-    // check('email')
-    // .isEmail()
-    // .withMessage('Server rejected email'),
+    check('email')
+    .isEmail(),
 
-    // check('phone')
-    // .isMobilePhone()
-    // .withMessage('Server rejected phone number'),
+    check('phone')
+    .isMobilePhone(),
 
-    // check('citizenOfUs')
-    // .isIn(['Yes', 'No'])
-    // .withMessage('Server rejected yes/no if citizen of US'),
+    check('citizenUS')
+    .isIn(['true', 'false']),
 
-    // check('workedForCompany')
-    // .isIn(['Yes', 'No'])
-    // .withMessage('Server rejected "Have you ever worked for this company?"'),
+    check('workedForThisCompany')
+    .isIn(['true', 'false']),
 
-    // check('convicted-of-felony')
-    // .isIn(['Yes', 'No'])
-    // .withMessage('Server rejected yes/no if conviced of felony'),
+    check('convictedOfFelony')
+    .isIn(['true', 'false']),
 
-    // check('felony-if-yes')
-    // .matches(/^[A-Za-z0-9 .,'!&]+$||^$/)
-    // .withMessage('Server rejected "if convicted of felony, explain"'),
+    check('felony-if-yes')
+    .matches(/^[A-Za-z0-9 .,'!&]+$||^$/),
 
-    // check('felony-if-no')
-    // .isIn(['Yes', 'No'])
-    // .withMessage('Server rejected "if no, are you authorized to work in the US"'),
+    check('ifAuthorizedToWork')
+    .isIn(['true', 'false']),
 
-    // check('if-authorized-to-work')
-    // .matches(/^[A-Za-z0-9 .,'!&]+$||^$/)
-    // .withMessage('Server rejected "If yes, when?"')
+    check('ifAuthorizedToWorkWhen')
+    .matches(/^[A-Za-z0-9 .,'!&]+$||^$/)
+
+
 ], (req, res) => {
     const errors = validationResult(req)
-    if(!errors.isEmpty()) {
-        res.render('serverRejection')
-    }
+    // if(!errors.isEmpty()) {
+    //     res.send(errors)
+    // }
 
     applicantInformation.create({
         first_name: req.body.fName,
@@ -93,13 +86,18 @@ router.post('/employmentApplication', [
         citizen_US: req.body.citizenUS,
         worked_for_this_company: req.body.workedForThisCompany,
         convicted_of_felony: req.body.convictedOfFelony,
-        felony_if_yes: req.body.felonyIfYes,
-        felony_if_no: req.body.felonyIfNo,
-        if_authorized_to_work: req.body.ifAuthorizedToWork
+        felony_explanation: req.body.felonyExplanation,
+        felony_if_no: req.body.ifAuthorizedToWork,
+        if_authorized_to_work: req.body.ifAuthorizedToWorkWhen
 
-    }).then(res.render('partials/employeeSubmission', { 
-        serverErrors: !errors.isEmpty()
-    }))
+    })
+    .then(
+        res.send()
+    //     res.render('partials/employeeSubmission', { 
+    //     // serverErrors: !errors.isEmpty(),
+    //     dbErrors: new ValidationError
+    // }    
+    )
     .catch(err => console.log(err))
 })
 

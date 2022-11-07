@@ -1,12 +1,20 @@
+<head>
+    <link rel="stylesheet" href="css/employeeSubmission.css">
+</head>
+
 <div>
 
-    {{#if serverErrors}}
+    {{!-- {{#if serverErrors}} --}}
+    {{#if dbErrors}}
 
-    <p>404 <br>Bad Request</p>
+    <p>404 Bad Request</p>
+
+    <p>The application was rejected</p>
 
     {{else}}
 
     <p>Succesfully Submitted</p>
     {{/if}}
+    {{!-- {{/if}} --}}
 
 </div>
